@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Login | FraudVision{% endblock %}
+{% block content %}
+<div class="auth-form">
+  <h2 style="text-align: center;">Login</h2>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        {% if category == 'success' %}
+          <div class="flash success">{{ message }}</div>
+        {% elif category == 'error' %}
+          <div class="flash error">{{ message }}</div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form method="POST">
+    <input type="email" name="email" placeholder="Email" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <button type="submit">Login</button>
+    <p>New user?  <a href="{{ url_for('signup') }}"> Create an account</a></p>
+  </form>
+</div>
+{% endblock %}

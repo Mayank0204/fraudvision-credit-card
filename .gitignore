@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environments
+.venv/
+venv/
+
+# Notebooks (optional)
+notebooks/*.ipynb_checkpoints/
+notebooks/temp_*.ipynb
+
+
+# IDEs
+.vscode/
+*.log
+.DS_Store

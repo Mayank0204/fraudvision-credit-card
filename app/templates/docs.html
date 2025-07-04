@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %}Documentation | FraudVision{% endblock %}
+
+{% block content %}
+  <div class="container card">
+      <h2>📚 FraudVision Documentation</h2>
+
+      <p style="margin: 35px 0 25px;">
+        FraudVision uses an ensemble of machine learning models to classify transactions as 
+        <span class="badge legit">Legit</span> , 
+        <span class="badge fraud">Fraud</span> , or 
+        <span class="badge uncertain">Uncertain</span> . The decision logic is based on combined model probabilities and thresholds.
+      </p>
+
+      <h3>🔄 How It Works</h3>
+      <ul>
+        <li>Upload a <strong>CSV file</strong> containing the required transaction features.</li>
+        <li>Choose:
+          <ul>
+            <li><strong>Single Prediction</strong> — test one transaction and view fraud probability.</li>
+            <li><strong>Batch Prediction</strong> — get predictions for multiple rows as a downloadable CSV.</li>
+          </ul>
+        </li>
+        <li>Fraud probabilities are computed using calibrated models.</li>
+        <li>Prediction logs are saved only in Single Prediction mode.</li>
+      </ul>
+
+      <h3>🧠 Available Models</h3>
+      <ul>
+        <li><strong>Random Forest:</strong> Reliable and handles class imbalance well.</li>
+        <li><strong>XGBoost:</strong> Fast and accurate with feature importance insights.</li>
+        <li><strong>Logistic Regression:</strong> Simple and interpretable baseline.</li>
+        <li><strong>Voting Ensemble:</strong> Weighted combination with emphasis on Logistic Regression.</li>
+      </ul>
+
+      <h3>⚙️ Model Calibration & Thresholds</h3>
+      <ul>
+        <li>All models use calibrated outputs (e.g. Isotonic regression).</li>
+        <li>Thresholds are fine-tuned for better fraud detection recall.</li>
+        <li>Ensemble combines calibrated predictions based on optimized weights.</li>
+      </ul>
+
+      <h3>📁 Sample Input Format</h3>
+      <ul>
+        <li>Ensure your CSV includes: Time, V1, V2, ..., V28, Amount, Class
+        <li>Download a sample file from <a href="/static/sample.csv" style="color: #b6ff99;">here</a>.</li>
+      </ul>
+
+      <h3>📊 Output Format</h3>
+      <ul>
+        <li>Each result contains:
+          <ul>
+            <li><strong>Prediction Label:</strong> Fraud / Legit / Uncertain</li>
+            <li><strong>Fraud Probability:</strong> e.g., 87.3%</li>
+          </ul>
+        </li>
+        <li>Thresholds vary per model and are not fixed at 0.5.</li>
+        <li>Model used for the prediction.</li>
+        <li>ROC curve charts help visualize model confidence and performance.</li>
+      </ul>
+
+      <h3>💡 Notes</h3>
+      <ul>
+        <li>Prediction history is saved only in Single Prediction mode.</li>
+        <li>Batch results are never stored — your data stays local.</li>
+        <li>Ensure your CSV is clean, with no missing values or formatting errors.</li>
+      </ul>
+
+      <h3>📈 Performance Metrics</h3>
+        <ul>
+          <li><strong>Accuracy:</strong> 99.4% — the overall rate at which the model correctly classifies transactions.</li>
+          <li><strong>Precision:</strong> 91.2% — out of all predicted frauds, how many were truly fraud.</li>
+          <li><strong>Recall:</strong> 94.8% — out of all actual frauds, how many were correctly identified.</li>
+          <li><strong>F1-Score:</strong> 93.0% — balances both precision and recall.</li>
+          <li><strong>AUC Score:</strong> High AUC values indicate strong model discrimination between fraud and legit cases.</li>
+        </ul>
+  </div>
+{% endblock %}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}FraudVision{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <nav>
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="FraudVision Logo" />
+      <div class="logo-text">FraudVision</div>
+    </div>
+    <ul>
+      <li><a href="{{ url_for('home') }}">Home</a></li>
+      <li><a href="{{ url_for('docs') }}">Docs</a></li>
+      <li><a href="{{ url_for('tech') }}">Tech</a></li>
+      <li><a href="{{ url_for('glossary') }}">Glossary</a></li>
+
+      {% if current_user.is_authenticated %}
+      <div class="profile-menu">
+        <div class="profile-icon">
+          <i class="fas fa-user"></i>
+          <span>{{ current_user.username }}</span>
+          <i class="fas fa-caret-down"></i>
+        </div>
+
+        <div class="profile-dropdown" id="userDropdown">
+          <a href="/logs"><i class="fas fa-file-alt"></i> View My Logs</a>
+          <a href="{{ url_for('logout') }}" class="logout"><i class="fas fa-lock-open"></i> Logout</a>
+        </div>
+      </div>
+    {% endif %}
+    </ul>
+  </nav>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <div>
+      <div style="margin: 15px;">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('docs') }}">Docs</a>
+        <a href="{{ url_for('tech') }}">Tech</a>
+        <a href="{{ url_for('glossary') }}">Glossary</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+      </div>
+
+      <div style="margin-top: 10px; margin: 18px;">
+        <a href="mailto:mksangwan2026@gmail.com">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://github.com/Mayank0204" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/mayank-sangwan-ab6795279/" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+      
+      <p style="font-size: 14px; margin: 12px;">
+        ©2025 FraudVision. All rights reserved.
+      </p>
+    </div>
+</footer>
+</body>
+</html>

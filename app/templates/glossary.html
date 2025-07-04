@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Glossary | FraudVision{% endblock %}
+
+{% block content %}
+<div class="container card" style="padding-left: 35px;">
+  <h2>📘 Glossary of Terms</h2>
+  <ul>
+    <li><strong>Fraud:</strong> A transaction that is identified as suspicious or unauthorized.</li>
+    <li><strong>Legit:</strong> A legitimate, authorized transaction.</li>
+    <li><strong>Threshold:</strong> The minimum fraud probability (%) required to classify a transaction as fraud.</li>
+    <li><strong>SMOTE:</strong> A technique used to balance class distribution in imbalanced datasets.</li>
+    <li><strong>Single Prediction:</strong> A mode for analyzing a single transaction to instantly detect fraud likelihood.</li>
+    <li><strong>Batch Prediction:</strong> A mode where multiple transactions are analyzed at once from a CSV file.</li>
+    <li><strong>Confidence Score:</strong> The model’s certainty (in %) behind its fraud prediction.</li>
+    <li><strong>ROC Curve:</strong> A graph showing model performance across different thresholds.</li>
+    <li><strong>Accuracy:</strong> The overall percentage of correct predictions made by the model (both fraud and legit).</li>
+    <li><strong>Precision:</strong> The ratio of correctly predicted frauds out of all predicted frauds.</li>
+    <li><strong>Recall:</strong> The ratio of correctly predicted frauds out of all actual frauds.</li>
+    <li><strong>F1 Score:</strong> The harmonic mean of precision and recall; balances false positives and false negatives.</li>
+    <li><strong>AUC Score:</strong> Area Under the ROC Curve, representing the model's ability to distinguish between fraud and legit cases.</li>
+    <li><strong>Prediction Log:</strong> A saved record containing the prediction result, timestamp, and model used, specific to a user.</li>
+    <li><strong>Input Summary:</strong> A condensed view of the transaction data submitted for prediction.</li>
+    <li><strong>Calibrated Model:</strong> A model whose output probabilities have been adjusted to better reflect true likelihoods.</li>
+    <li><strong>Random Forest:</strong> An ensemble learning method based on multiple decision trees to improve prediction accuracy.</li>
+    <li><strong>XGBoost:</strong> A high-performance, tree-based gradient boosting algorithm used for classification.</li>
+    <li><strong>Logistic Regression:</strong> A linear model used for binary classification problems like fraud detection.</li>
+    <li><strong>Voting Classifier:</strong> An ensemble model combining predictions from multiple models using weighted or majority voting.</li>
+  </ul>
+</div>
+{% endblock %}

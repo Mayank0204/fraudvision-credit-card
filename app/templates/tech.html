@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Tech Stack | FraudVision{% endblock %}
+
+{% block content %}
+  <div class="container card">
+    <h2>🧰 Technology Stack</h2>
+
+    <p style="margin: 35px 0 25px;">
+      FraudVision is a fraud detection web application built with a lightweight Python web stack, modern UI components, and multiple machine learning models. Below is the detailed technology stack that powers the platform:
+    </p>
+
+    <h3>🌐 Web Framework</h3>
+    <ul>
+      <li><strong>Flask:</strong> Minimal Python web framework for backend routing and request handling</li>
+      <li><strong>Jinja2:</strong> Template engine used for rendering dynamic HTML from backend logic</li>
+      <li><strong>Flask-Login:</strong> Manages secure user authentication, login/logout, and session state</li>
+      <li><strong>Werkzeug:</strong> Provides password hashing and security helpers</li>
+    </ul>
+
+    <h3>🧠 Machine Learning</h3>
+    <ul>
+      <li><strong>scikit-learn:</strong> Core ML framework for Logistic Regression, Random Forest, and model evaluation</li>
+      <li><strong>XGBoost:</strong> Boosted tree algorithm for high-performance fraud classification</li>
+      <li><strong>VotingClassifier:</strong> Combines predictions from multiple models for improved accuracy</li>
+      <li><strong>joblib:</strong> Used to save/load ML models and scalers efficiently</li>
+    </ul>
+
+    <h3>🗃️ Database</h3>
+    <ul>
+      <li><strong>SQLite:</strong> Lightweight relational database storing user data and prediction logs</li>
+      <li><strong>SQLAlchemy:</strong> ORM for defining models like <code>User</code> and <code>PredictionLog</code></li>
+    </ul>
+
+    <h3>🎨 Frontend</h3>
+    <ul>
+      <li><strong>HTML5 & CSS3:</strong> Structure and styling of all frontend pages</li>
+      <li><strong>Custom CSS:</strong> Custom dark theme with card layouts, animated buttons, and responsive styling</li>
+      <li><strong>Font Awesome (optional):</strong> Icons used in footer/social links (if enabled)</li>
+    </ul>
+
+    <h3>📁 Project Structure</h3>
+    <ul>
+      <li><strong>Blueprint-Based Modularization:</strong> Separate auth, model, and data handling routes</li>
+      <li><strong>/templates/:</strong> Contains HTML pages rendered by Flask</li>
+      <li><strong>/static/:</strong> Includes custom CSS and asset files</li>
+      <li><strong>/src/: </strong> Contains <code>model.py</code>, <code>data_loader.py</code>, and utility functions</li>
+    </ul>
+
+    <h3>🚀 Deployment Ready</h3>
+    <ul>
+      <li><strong>Lightweight and Self-contained:</strong> Easy to run locally or deploy on platforms like Render, Railway, Heroku</li>
+      <li><strong>Secure by Design:</strong> Passwords hashed, input sanitized, and user sessions managed safely</li>
+    </ul>
+  </div>
+{% endblock %}

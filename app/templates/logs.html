@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}My Logs | FraudVision{% endblock %}
+{% block content %}
+<h2 style="text-align: center;">📄 My Prediction Logs</h2>
+<table border="1" style="width:100%; margin-top: 15px;">
+  <tr>
+    <th>Timestamp</th>
+    <th>Model Used</th>
+    <th>Prediction</th>
+    <th>Input Summary</th>
+  </tr>
+  {% for log in logs %}
+  <tr>
+    <td>{{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+    <td>{{ log.model_used }}</td>
+    <td>{{ log.prediction }}</td>
+    <td>{{ log.input_data[:104] }}...</td>
+  </tr>
+  {% endfor %}
+</table>
+{% if not logs %}<p>No logs found yet.</p>{% endif %}
+{% endblock %}
